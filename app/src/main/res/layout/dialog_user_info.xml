@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="sinceData"
+            type="String" />
+        <variable
+            name="karma"
+            type="String" />
+        <variable
+            name="isFriend"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="4dp"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:strokeColor="@color/humblr_main"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp">
+
+
+            <ImageView
+                android:id="@+id/close_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="180dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintTop_toBottomOf="@id/close_icon"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/humblr_main"
+                android:textStyle="bold"
+                android:text="Pirela"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                app:layout_constraintStart_toEndOf="@id/avatar"
+                app:layout_constraintEnd_toEndOf="@id/close_icon"
+                app:layout_constraintTop_toTopOf="@id/avatar"/>
+
+
+            <TextView
+                android:id="@+id/title_since"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text='@{"Since: " + sinceData}'
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@id/avatar"
+                app:layout_constraintEnd_toEndOf="@id/close_icon"
+                app:layout_constraintTop_toBottomOf="@id/name"/>
+
+            <TextView
+                android:id="@+id/title_karma"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text='@{"Total karma: " + karma}'
+                app:layout_constraintStart_toEndOf="@id/avatar"
+                app:layout_constraintEnd_toEndOf="@id/close_icon"
+                app:layout_constraintTop_toBottomOf="@id/title_since"/>
+
+            <ImageView
+                android:id="@+id/subscribe_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@{isFriend == true ? @drawable/subscribed : @drawable/subscribe}"
+                app:layout_constraintTop_toBottomOf="@id/title_karma"
+                app:layout_constraintStart_toEndOf="@id/avatar"
+                app:layout_constraintEnd_toEndOf="@id/close_icon"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/subscribe_button"
+                app:layout_constraintStart_toStartOf="@id/subscribe_button"
+                app:layout_constraintEnd_toEndOf="@id/subscribe_button"
+                android:text="@{isFriend == true ? @string/unfriend : @string/friend}"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+

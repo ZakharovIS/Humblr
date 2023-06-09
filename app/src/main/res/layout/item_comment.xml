@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isUpvoted"
+            type="Boolean" />
+
+        <variable
+            name="isDownvoted"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingVertical="4dp"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:strokeColor="@color/humblr_light"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    android:id="@+id/author"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/humblr_main"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="@id/author"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/author"
+                    app:layout_constraintTop_toTopOf="@id/author" />
+
+                <TextView
+                    android:id="@+id/comment_body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/author" />
+
+                <ImageView
+                    android:id="@+id/upvote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@{isUpvoted == true ? @drawable/up_vote_set : @drawable/up_vote_not_set}"
+                    app:layout_constraintStart_toStartOf="@id/comment_body"
+                    app:layout_constraintTop_toBottomOf="@id/comment_body" />
+
+                <TextView
+                    android:id="@+id/votes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintBottom_toBottomOf="@id/upvote"
+                    app:layout_constraintStart_toEndOf="@id/upvote"
+                    app:layout_constraintTop_toTopOf="@id/upvote" />
+
+                <ImageView
+                    android:id="@+id/downvote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:rotation="180"
+                    android:scaleType="fitXY"
+                    android:src="@{isDownvoted == true ? @drawable/down_vote_set : @drawable/up_vote_not_set}"
+                    app:layout_constraintBottom_toBottomOf="@id/upvote"
+                    app:layout_constraintStart_toEndOf="@id/votes"
+                    app:layout_constraintTop_toTopOf="@id/upvote" />
+
+                <!--<ImageView
+                    android:id="@+id/comments_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/comments"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/upvote"
+                    app:layout_constraintEnd_toEndOf="@id/time"
+                    app:layout_constraintTop_toTopOf="@id/upvote" />
+
+                <TextView
+                    android:id="@+id/comments_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="22"
+                    android:textColor="@color/humblr_main"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/comments_icon"
+                    app:layout_constraintEnd_toStartOf="@id/comments_icon"
+                    app:layout_constraintTop_toTopOf="@id/comments_icon" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</layout>

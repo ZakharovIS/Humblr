@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.posts.PostsFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/search_view_background"
+        android:elevation="20dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:textOff="NEW"
+        android:textOn="POPULAR"
+        android:textStyle="bold"
+        android:thumb="@drawable/new_popular_selector_thumb"
+        app:layout_constraintEnd_toEndOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="@id/search_view"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:showText="true"
+        app:track="@drawable/new_popular_selector_track" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="@id/switchButton"
+        app:layout_constraintEnd_toEndOf="@id/switchButton"
+        app:layout_constraintStart_toStartOf="@id/switchButton"
+        app:layout_constraintTop_toTopOf="@id/switchButton">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="NEW" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="POPULAR" />
+
+
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="@id/search_view"
+        app:layout_constraintTop_toBottomOf="@id/switchButton">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RV_subreddits_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <LinearLayout
+        android:id="@+id/mask_layout_transparent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/transparent_background"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/switchButton" />
+
+
+    <LinearLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:colorBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/refresh_page_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/network_error" />
+
+        <Button
+            android:id="@+id/refresh_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/reload" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

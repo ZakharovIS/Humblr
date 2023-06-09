@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="num_karma"
+            type="Integer" />
+        <variable
+            name="num_friends"
+            type="Integer" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.user.UserFragment">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontal_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+
+            <ImageView
+                android:id="@+id/avatar_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/avatar_default_1"
+                app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="25sp"
+                android:text="Yenaro83"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/title_karma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("Karma: %d", num_karma)}'
+                app:layout_constraintTop_toTopOf="@id/horizontal_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+
+                />
+
+            <TextView
+                android:id="@+id/title_friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("Friends: %d", num_friends)}'
+                app:layout_constraintTop_toBottomOf="@id/title_karma"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+
+                />
+
+            <Button
+                android:id="@+id/button_friends_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Friends"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/logout_button_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/button_delete_saved"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/button_delete_saved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Delete saved data"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/logout_button_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/logout_button"
+                android:layout_marginBottom="40dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logout_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/logout_button_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="20dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:colorBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/black"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:colorBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/refresh_page_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="@string/network_error" />
+
+            <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/reload" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</layout>
+

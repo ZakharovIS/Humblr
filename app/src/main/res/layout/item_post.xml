@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isSubscribed"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="4dp"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:strokeColor="@color/humblr_main"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp">
+
+
+
+            <TextView
+                android:id="@+id/name_subreddit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/humblr_main"
+                android:textStyle="bold"
+               android:layout_marginStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_subreddit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_subreddit" />
+
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/title_subreddit"
+                app:layout_constraintTop_toBottomOf="@id/title_subreddit">
+
+                <ImageView
+                    android:id="@+id/image_subreddit"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/description_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
+                        android:autoLink="all"
+                        android:ellipsize="end"
+                        android:maxLines="4"
+                        android:visibility="visible"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
+                        android:autoLink="web"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:visibility="visible"
+                        app:layout_constraintVertical_bias="0" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:textColor="@color/humblr_main"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@id/title_subreddit"
+                app:layout_constraintTop_toBottomOf="@id/content_layout"
+                app:layout_goneMarginTop="110dp" />
+
+            <ImageView
+                android:id="@+id/comments_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/comments"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/author" />
+
+            <TextView
+                android:id="@+id/comments_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:textColor="@color/humblr_main"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/author"
+                app:layout_constraintEnd_toStartOf="@id/comments_icon"
+                app:layout_constraintTop_toTopOf="@id/author" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
+

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Humblr</string>
+    <string name="title_posts">Posts</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_user">User</string>
+    <string name="onboarding_title_1">Добро пожаловать в Humblr</string>
+    <string name="onboarding_title_2">SubHumblr</string>
+    <string name="onboarding_title_3">Делись и сохраняй</string>
+    <string name="onboarding_description_1">Здесь собраны сообщества по всевозможным интересам</string>
+    <string name="onboarding_description_2">Ты можешь найти новые сабы по интересам и посмотреть сабы, на которые подписан</string>
+    <string name="onboarding_description_3">Вкладка избранное хранит закладки с комментариями и сабами. В профиле ты найдёшь информацию о себе.</string>
+    <string name="skip">Пропустить</string>
+    <string name="onboarding_done">Готово</string>
+    <string name="login">Войти</string>
+
+    <string name="auth_login">Log in</string>
+    <string name="auth_canceled">Authentication cancelled</string>
+    <string name="corrupt_access_token">Corrupt access token</string>
+    <string name="get_user_info">Get user info</string>
+    <string name="get_user_error">Get user error</string>
+    <string name="logout">logout</string>
+    <string name="subreddits">Subreddits</string>
+    <string name="comments">Comments</string>
+    <string name="all">All</string>
+    <string name="saved">Saved</string>
+    <string name="info">Info</string>
+    <string name="posts">Posts</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="subscribed">Subscribed</string>
+    <string name="network_error">NETWORK ERROR. RELOAD THE PAGE.</string>
+    <string name="reload">Reload</string>
+    <string name="friend">Add friend</string>
+    <string name="unfriend">Delete friend</string>
+
+</resources>

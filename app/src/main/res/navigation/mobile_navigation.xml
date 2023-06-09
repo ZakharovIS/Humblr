@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_posts">
+
+    <fragment
+        android:id="@+id/navigation_posts"
+        android:name="com.example.humblr.ui.posts.PostsFragment"
+        android:label="@string/title_posts"
+        tools:layout="@layout/fragment_posts" >
+        <action
+            android:id="@+id/action_navigation_subreddits_to_DetailPostFragment"
+            app:destination="@id/DetailPostFragment" />
+        <action
+            android:id="@+id/action_navigation_subreddits_to_userDialogFragment"
+            app:destination="@id/userDialogFragment" />
+        <action
+            android:id="@+id/action_navigation_subreddits_to_subreddit_dialog_fragment"
+            app:destination="@id/subreddit_dialog_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.humblr.ui.favorite.FavoriteFragment"
+        android:label="@string/title_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_navigation_favorite_to_DetailPostFragment"
+            app:destination="@id/DetailPostFragment" />
+        <action
+            android:id="@+id/action_navigation_favorite_to_userDialogFragment"
+            app:destination="@id/userDialogFragment" />
+        <action
+            android:id="@+id/action_navigation_favorite_to_subreddit_dialog_fragment"
+            app:destination="@id/subreddit_dialog_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="com.example.humblr.ui.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_navigation_user_to_friendsFragment"
+            app:destination="@id/friendsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DetailPostFragment"
+        android:name="com.example.humblr.ui.detailpost.DetailPostFragment"
+        >
+        <argument
+            android:name="post_url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_DetailPostFragment_to_subreddit_dialog_fragment"
+            app:destination="@id/subreddit_dialog_fragment" />
+        <action
+            android:id="@+id/action_DetailPostFragment_to_userDialogFragment"
+            app:destination="@id/userDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/subreddit_dialog_fragment"
+        android:name="com.example.humblr.ui.dialogs.SubredditDialogFragment"
+        android:label="subreddit_dialog_fragment" >
+        <argument
+            android:name="subreddit_name"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/userDialogFragment"
+        android:name="com.example.humblr.ui.dialogs.UserDialogFragment"
+        android:label="UserDialogFragment" >
+        <argument
+            android:name="user_name"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="com.example.humblr.ui.user.FriendsFragment"
+        android:label="My Friends" />
+</navigation>
